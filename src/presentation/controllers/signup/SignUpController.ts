@@ -1,4 +1,4 @@
-import { HttpRequest, HttpResponse, Controller, EmailValidator, CreateAccount } from './interfaces'
+import { HttpRequest, HttpResponse, Controller, EmailValidator, CreateAccount } from './sign-interfaces'
 import { MissingParamError, InvalidParamError } from '../../errors/'
 import { badRequest, serverError, ok } from '../../helpers/http-helper'
 
@@ -31,6 +31,7 @@ export default class SignUpController implements Controller {
       })
       return ok(account)
     } catch (error) {
+      console.error(error)
       return serverError()
     }
   }
